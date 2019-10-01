@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+	int a[1000], b[1000], n = 0, n0 = 0, i = 0, k = 0, k0 = 0, rav = 0;
+
+	cout << "Введите массив" << endl;
+	while (0 < 1) {
+		cin >> a[n];
+		if (a[n] == 0) {
+			goto M;
+		}
+		n++;
+	}
+
+M: for (i; n0 < n; n0++) {
+	k = a[n0];
+	for (i; k0 < n; k0++) {
+		if (a[k0] == k){
+			rav++;
+			}
+	}
+	k0 = 0;
+	if (rav == 1) {
+		b[i] = a[n0];
+		++i;
+	}
+
+	rav = 0;
+}
+
+n0 = 0;
+		for (i; n0 < i; n0++) {
+			cout << b[n0] << endl;
+		}
+return 0;
+}
