@@ -1,0 +1,28 @@
+#include <iostream> 
+using namespace std;
+
+
+int main()
+{
+	setlocale(0, " ");
+	int arr[1000], n, max;
+	cin >> n;
+
+	for (int i = 0; i < n; i++) {
+		cin >> arr[i];
+	}
+	for (int i = 0; i < n; i++) {
+		for (int j = i; j < n; j++) {
+			if (arr[j] > arr[i]) {
+				max = arr[i];
+				arr[i] = arr[j];
+				arr[j] = max;
+			}
+		}
+	}
+
+	for (int i = 0; i < n; i++) {
+		cout << arr[i];
+	}
+	return 0;
+}
