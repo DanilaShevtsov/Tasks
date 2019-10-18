@@ -1,0 +1,18 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	char str[1000], simv;
+	int i = 0;
+	cin >> str >> simv;
+	while (str != '\0') {
+		if (str[i] != simv) {
+			i++;
+		}
+		else {
+			cout << "Yes";
+			exit(0);
+		}
+	}
+	cout << "No";
+}
