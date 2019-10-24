@@ -1,0 +1,47 @@
+#include <iostream>
+#include <string>
+#include <cstring>
+#include <fstream>
+#include <Windows.h>
+using namespace std;
+
+struct stud {
+	char surname[100];
+	char name[100];
+	char patronymic[100];
+	char dateofbirth[12];
+	char fuc[100];
+	char caf[100];
+	char group[100];
+	char adress[1000];
+	char acp[20];
+};
+int main() {
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+	stud stud1;
+	cout << "Фамилия: "; gets_s(stud1.surname);
+	cout << endl << "Имя: "; gets_s(stud1.name);
+	cout << endl << "Отчество: "; gets_s(stud1.patronymic);
+	cout << endl << "Дата рождения: "; gets_s(stud1.dateofbirth);
+	cout << endl << "Факультет: "; gets_s(stud1.fuc);
+	cout << endl << "Кафедра: "; gets_s(stud1.caf);
+	cout << endl << "Группа: "; gets_s(stud1.group);
+	cout << endl << "Адрес: "; gets_s(stud1.adress);
+	cout << endl << "Успеваемость: "; gets_s(stud1.acp);
+	
+	ofstream fout;
+	fout.open("text.txt", ofstream::app);
+
+	fout << stud1.surname << "	";
+	fout << stud1.name << "	";
+	fout << stud1.patronymic << "	";
+	fout << stud1.dateofbirth << "	";
+	fout << stud1.fuc << "	";
+	fout << stud1.caf << "	";
+	fout << stud1.group << "	";
+	fout << stud1.adress <<	"	";
+	fout << stud1.acp << "	" << endl;
+
+	fout.close();
+}
