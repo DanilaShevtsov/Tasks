@@ -1,0 +1,21 @@
+#include "pch.h"
+#include "stdio.h"
+#include <iostream>
+#include <string>
+#include <cstring>
+#include <Windows.h>
+using namespace std;
+
+int main() {
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+	char str[1000]; int i = 0;
+	gets_s(str);
+	while (str[i] != '\0') {
+		if ((str[i] == 'т') and (str[i + 1] == 'ь')) {
+			str[i] = 'с'; str[i+1] = 'я';
+		}
+		++i;
+	}
+	cout << str;
+}
