@@ -25,7 +25,7 @@ int main() {
 		t = 0;
 		for (int i = 1; i < n - 1; i++) {
 			for (int j = 1; j < k - 1; j++) {
-				if (m[i][j] == p){
+				if (m[i][j] == p) {
 					if (m[i - 1][j] == 0) {
 						m[i - 1][j] = p + 1;
 						t = 1;
@@ -46,71 +46,70 @@ int main() {
 			}
 		}
 		++p;
-		for (int i = 0; i < n; i++) {
-			for (int j = 0; j < k; j++) {
-				cout << m[i][j] << ' ';
-			}
-			cout << endl;
-		}
-		cout << endl << endl << "----------------------" << endl << endl;
 	}
 	t = 1;
-	cout << endl << endl << "Результат" << endl << endl;
-		for (int i = 1; i < n - 1; i++) {
-			for (int j = 1; j < k - 1; j++) {
-				if (m[i][j] == 50) {
-					min = m[i][j];
-					m[i][j] = 0;
-					for (int x = 0; x < 4; x++) {
-						if ((m[i - 1][j] < min) && (m[i - 1][j] != 1)) {
-							min = m[i - 1][j];
-						}
-						if ((m[i][j + 1] < min) && (m[i][j + 1] != 1)) {
-							min = m[i][j + 1];
-						}
-						if ((m[i + 1][j] < min) && (m[i + 1][j] != 1)) {
-							min = m[i + 1][j];
-						}
-						if ((m[i][j - 1] < min) && (m[i][j - 1] != 1)) {
-							min = m[i][j - 1];
-						}
+	cout << "Результат" << endl << endl;
+	for (int i = 1; i < n - 1; i++) {
+		for (int j = 1; j < k - 1; j++) {
+			if (m[i][j] == 50) {
+				min = m[i][j];
+				m[i][j] = 0;
+				for (int x = 0; x < 4; x++) {
+					if ((m[i - 1][j] < min) && (m[i - 1][j] != 1)) {
+						min = m[i - 1][j];
+					}
+					if ((m[i][j + 1] < min) && (m[i][j + 1] != 1)) {
+						min = m[i][j + 1];
+					}
+					if ((m[i + 1][j] < min) && (m[i + 1][j] != 1)) {
+						min = m[i + 1][j];
+					}
+					if ((m[i][j - 1] < min) && (m[i][j - 1] != 1)) {
+						min = m[i][j - 1];
 					}
 				}
-
 			}
-		}
 
-		for (int i = 1; i < n - 1; i++) {
-			for (int j = 1; j < k - 1; j++) {
-					if (m[i][j] == 0) {
-						while (min != 1) {
-							if (m[i - 1][j] == min) {
-								m[i - 1][j] = 0;
-								--i;
-							}
-							if (m[i][j + 1] == min) {
-								m[i][j + 1] = 0;
-								++j;
-							}
-							if (m[i + 1][j] == min) {
-								m[i + 1][j] = 0;
-								++i;
-							}
-							if (m[i][j - 1] == min) {
-								m[i][j - 1] = 0;
-								--j;
-							}
-							--min;							
-						}
+		}
+	}
+
+	for (int i = 1; i < n - 1; i++) {
+		for (int j = 1; j < k - 1; j++) {
+			if (m[i][j] == 0) {
+				while (min != 1) {
+					if (m[i - 1][j] == min) {
+						m[i - 1][j] = 0;
+						--i;
 					}
+					if (m[i][j + 1] == min) {
+						m[i][j + 1] = 0;
+						++j;
+					}
+					if (m[i + 1][j] == min) {
+						m[i + 1][j] = 0;
+						++i;
+					}
+					if (m[i][j - 1] == min) {
+						m[i][j - 1] = 0;
+						--j;
+					}
+					--min;
+				}
 			}
 		}
+	}
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < k; j++) {
+			if (m[i][j] != 0) {
+				m[i][j] = 1;
+			}
+		}
+	}
 	for (int x = 0; x < n; x++) {
 		for (int c = 0; c < k; c++) {
 			cout << m[x][c] << ' ';
 		}
 		cout << endl;
-		
+
 	}
-	cout << endl << endl << "----------------------" << endl << endl;
 }
