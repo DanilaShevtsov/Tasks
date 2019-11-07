@@ -1,0 +1,27 @@
+#include <iostream>
+#include <Windows.h>
+using namespace std;
+
+int main() {
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+	char sogl[30] = { 'й', 'ц', 'к', 'н', 'г', 'ш', 'щ', 'з', 'х', 'ъ', 'ф', 'в', 'п', 'р', 'л', 'д', 'ж', 'ч', 'с', 'м', 'т', 'ь', 'б' }, str[1000]; int i = 0, x = 0;
+	gets_s(str);
+
+	while (str[i] != '\0') {
+		while ((str[i] != ' ') && (str[i] != '\0')) {
+			i++;
+		}
+		for (int j = 0; j < 30; j++) {
+			if (str[i - 1] == sogl[j]) {
+				for (; x < i; x++) {
+					if (str[i] == '\0') {
+						break;
+					}
+					cout << str[x];
+				}
+			}
+		}
+		++i;
+	}
+}
