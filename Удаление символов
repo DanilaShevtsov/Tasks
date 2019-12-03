@@ -1,0 +1,34 @@
+#include "pch.h"
+#include <iostream>
+#include <Windows.h>
+
+int func(char* str) {
+
+	int i = 0, j = 0;
+	char k;
+	while (str[i] != '\0') {
+		while(str[i] == '*')
+		if (str[i] == '*') {
+			//a*asdd
+			j = i;
+			while (str[j] != '\0') {
+				str[j] = str[j + 1];
+				++j;
+			}
+
+		}
+		i++;
+	}
+	i = 0;
+
+	printf("%s", str);
+	return 0;
+}
+
+int main()
+{
+	char str[1000];
+
+	gets_s(str);
+	func(str);	
+}
