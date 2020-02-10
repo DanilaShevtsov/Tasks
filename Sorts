@@ -1,0 +1,84 @@
+#include "pch.h"
+#include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
+
+#define size 1000
+
+void bubble_sort(int*, int);
+void line_sort(int*, int);
+
+int main()
+{
+	int mass0[size];
+	srand(time(0));
+	for (int i = 0; i < size; i++)
+	 mass0[i] = rand() % 10;
+
+	int mass_bubble[size];
+
+	for (int i = 0; i < size; i++)
+		mass_bubble[i] = mass0[i];
+	
+	int time_before, time_after;
+	time_before = time(0);
+	printf("[DEBUG] massise before bubble sort\n");
+	for (int i = 0; i < size; i++)
+		printf("%d", mass_bubble[i]);
+	printf("\n");
+
+	bubble_sort(mass_bubble, size);
+
+	time_after = time(0);
+	printf("[DEBUG] massive after bubble sort\n");
+	for (int i = 0; i < size; i++)
+		printf("%d", mass_bubble[i]);
+	printf("\nTime function is %d", time_after - time_before);
+
+	int mass_line[size];
+	for (int i = 0; i < size; i++)
+		mass_line[i] = mass0[i];
+
+	time_before = time(0);
+	printf("\n\n[DEBUG] massive before line sort\n");
+	for (int i = 0; i < size; i++)
+		printf("%d", mass_line[i]);
+	line_sort(mass_line, size);
+	time_after = time(0);
+	printf("\n[DEBUG] massive after line sort\n");
+	for (int i = 0; i < size; i++)
+		printf("%d", mass_line[i]);
+	printf("\nTime function is %d", time_after - time_before);
+}
+
+void bubble_sort(int* massive, int i) {
+	int buff;
+	for (int j = 0; j < i - 1; j++) {
+		for (int k = 0; k < i - j - 1; k++) {
+			if (massive[k] > massive[k + 1]) {
+				buff = massive[k];
+				massive[k] = massive[k + 1];
+				massive[k + 1] = buff;
+			}
+		}
+	}
+}
+
+void line_sort(int* m, int n) {
+	int max = 0, c = 0;
+	for (int i = 0; i < n; i++)
+		if (max < m[i])
+			max = m[i];
+
+	int* mass = new int[++max];
+	for (int j = 0; j < max; j++)
+		mass[j] = 0;
+	for (int i = 0; i < n; i++)
+		mass[m[i]] = 1;
+	for (int i = 0; i < max; i++)
+		if (mass[i] != 0) {
+			m[c] = i;
+			c++;
+		}
+	delete[] mass;
+}
